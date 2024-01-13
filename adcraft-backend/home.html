@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POST Request Example</title>
+</head>
+<body>
+
+<script>
+  function sendPostRequest() {
+    var xhr = new XMLHttpRequest();
+    var url = 'http://localhost:5000/gen';
+    var data = JSON.stringify({
+      brand: 'Praanesh',
+      slogan: 'Just a developer',
+      category: 'a developer working in space anime style'
+    });
+
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          console.log('Response:', xhr.responseText);
+          console.log('Status Code:', xhr.status);
+        } else {
+          console.error('Error:', xhr.statusText);
+          console.error('Status Code:', xhr.status);
+        }
+      }
+    };
+
+    xhr.send(data);
+  }
+
+  sendPostRequest();
+</script>
+
+</body>
+</html>
