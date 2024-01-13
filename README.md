@@ -26,6 +26,8 @@ Create customized ad posters with ease using AdCraft, a web application that lev
 
 link to huggingface (https://huggingface.co/stabilityai/sdxl-turbo)
 
+##Block diagram
+![Brand name - Category - Slogan (1)](https://github.com/jai2992/adcraft/assets/136327019/37d168a4-4d52-4848-9c4b-7024e321516c)
 
 
 ## Installation
