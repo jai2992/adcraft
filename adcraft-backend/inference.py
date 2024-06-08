@@ -7,17 +7,15 @@ import torch
 
 
 class Adcraft:
-    def __init__(self):
-        self.pipe = AutoPipelineForText2Image.from_pretrained(
-            "stabilityai/sdxl-turbo", torch_dtype=torch.float32, variant="fp16")
-        self.image_path = 'generated_img.png'
+    def query(self):
+        response = requests.post(API_URL, headers=headers, json=payload)
+	    return response.content
 
     def generate_image(self, category):
         prompt = category+',  without text , with background blur'
-        image = self.pipe(prompt=prompt, num_inference_steps=1,
-                          guidance_scale=0.0).images[0]
-
-        image_bytes = BytesIO()
+        image_bytes = query({
+	            "inputs": "query",
+                })
         image.save(image_bytes, format='PNG')
 
         image.save(self.image_path)
